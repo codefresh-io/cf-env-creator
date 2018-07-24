@@ -14,7 +14,7 @@ FROM google/cloud-sdk:alpine
 RUN apk add --no-cache py-pip && pip install --upgrade awscli
 
 COPY --from=sops /go/bin/sops /usr/bin/
-COPY --from=helm /bin/helm /usr/bin/
+COPY --from=helm /usr/local/bin/helm /usr/bin/
 COPY --from=helm /usr/local/bin/kubectl /usr/bin/
 
 # ON BUILD
