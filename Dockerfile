@@ -1,11 +1,11 @@
 # ----- Sops ------
 #
-FROM golang:1.10-alpine AS sops
+FROM golang:1.11-alpine AS sops
 # install sops
 RUN apk add --no-cache git && go get -u go.mozilla.org/sops/cmd/sops && which sops
 
 #------ helm ----
-FROM dtzar/helm-kubectl:2.9.1 as helm
+FROM dtzar/helm-kubectl:2.12.0 as helm
 
 #------- Deployer ------
 #
