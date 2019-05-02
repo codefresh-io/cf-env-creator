@@ -18,6 +18,11 @@ COPY --from=sops /go/bin/figlet /usr/bin/
 COPY --from=helm /usr/local/bin/helm /usr/bin/
 COPY --from=helm /usr/local/bin/kubectl /usr/bin/
 
+# Add font to be used in figlet
+RUN git clone https://github.com/lukesampson/figlet
+RUN mv figlet/figletlib/fonts . && rm -rf figlet
+ENV GOPATH=/
+
 # ON BUILD
 ONBUILD ADD . /opt/codefresh/
 ONBUILD RUN chmod +x /opt/codefresh/bin/*
