@@ -12,7 +12,7 @@ FROM dtzar/helm-kubectl:2.12.0 as helm
 #
 FROM google/cloud-sdk:alpine
 
-RUN apk add --no-cache py-pip && apk add git curl jq py-pip bash && pip install yq && pip install --upgrade awscli
+RUN apk add --no-cache py-pip && apk add git curl jq py-pip bash certbot && pip install yq && pip install --upgrade awscli && apk add --no-cache python3 && pip3 install certbot_dns_route53
 COPY --from=sops /go/bin/sops /usr/bin/
 COPY --from=sops /go/bin/figlet /usr/bin/
 COPY --from=helm /usr/local/bin/helm /usr/bin/
