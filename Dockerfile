@@ -2,7 +2,7 @@
 #
 FROM golang:1.11-alpine AS sops
 # install sops
-RUN apk add --no-cache git && go get -u go.mozilla.org/sops/v3/cmd/sops && which sops
+RUN apk add --no-cache git curl && curl "https://github.com/mozilla/sops/releases/download/v3.5.0/sops-v3.5.0.linux" -L --output /go/bin/sops
 RUN go get github.com/lukesampson/figlet
 
 #------ helm ----
