@@ -6,7 +6,7 @@ RUN apk add --no-cache git && go get -u go.mozilla.org/sops/cmd/sops && which so
 RUN go get github.com/lukesampson/figlet
 
 #------ helm ----
-FROM dtzar/helm-kubectl:2.14.3 as helm
+FROM dtzar/helm-kubectl:3.0.1 as helm
 
 #------- Deployer ------
 #
