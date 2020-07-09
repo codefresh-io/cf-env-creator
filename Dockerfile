@@ -12,7 +12,6 @@ RUN go get github.com/lukesampson/figlet
 FROM google/cloud-sdk:alpine
 
 RUN apk add --no-cache py-pip && apk add git curl jq py-pip bash certbot && pip install yq && pip install --upgrade awscli && apk add --no-cache python3 && pip3 install certbot_dns_route53
-COPY --from=sops /go/bin/sops /usr/bin/
 COPY --from=sops /go/bin/figlet /usr/bin/
 
 # Add font to be used in figlet
