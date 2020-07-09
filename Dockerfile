@@ -23,14 +23,14 @@ ENV GOPATH=/
 #------ helm ----
 ARG HELM_VERSION
 ENV HELM_VERSION ${HELM_VERSION:-3.2.3}
-RUN wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm \
+RUN wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/bin/helm \
     && chmod +x /usr/bin/helm
 
 #------ kubectl
 ARG KUBECTL_VERSION
 ENV KUBECTL_VERSION ${KUBECTL_VERSION:-1.18.5}
 RUN wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl -O /usr/bin/kubectl \
-    && chmod +x /usr/local/bin/kubectl
+    && chmod +x /usr/bin/kubectl
 
 # ON BUILD
 ONBUILD ADD . /opt/codefresh/
