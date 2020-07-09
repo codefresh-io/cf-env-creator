@@ -20,7 +20,7 @@ RUN mv figlet/figletlib/fonts . && rm -rf figlet
 ENV GOPATH=/
 
 #------ sops ----
-RUN wget -q https://github.com/mozilla/sops/releases/download/v3.5.0/sops-v3.5.0.linux -O > /usr/bin/sops && \
+RUN wget -q https://github.com/mozilla/sops/releases/download/v3.5.0/sops-v3.5.0.linux -O /usr/bin/sops && \
     chmod +x /usr/bin/sops
 
 #------ helm ----
