@@ -25,7 +25,7 @@ RUN wget -q https://github.com/mozilla/sops/releases/download/v3.5.0/sops-v3.5.0
 
 #------ helm ----
 ARG HELM_VERSION
-ENV HELM_VERSION ${HELM_VERSION:-3.2.3}
+ENV HELM_VERSION ${HELM_VERSION:-2.16.9}
 RUN wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/bin/helm && \
     chmod +x /usr/bin/helm
 
